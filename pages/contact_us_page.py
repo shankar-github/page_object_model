@@ -52,6 +52,3 @@ class ContactUsPage(BasePage):
 
     def get_failure_message(self):
         return self.get_element_text(locator=self._failure_message).text
-
-
-

@@ -1,5 +1,7 @@
 from pages.base_page import BasePage
+from pages.contact_us_page import ContactUsPage
 from pages.search_result import SearchResultPage
+from pages.sign_in_page import SignInPage
 
 
 class HomePage(BasePage):
@@ -25,7 +27,7 @@ class HomePage(BasePage):
     def _click_contact_us_link(self):
         self.element_click(self._contact_us_link, locator_type="link")
 
-    def _click_contact_us_link(self):
+    def _click_sign_in_link(self):
         self.element_click(self._sign_in_link, locator_type="link")
 
     def perform_search(self,search_for):
@@ -35,6 +37,8 @@ class HomePage(BasePage):
 
     def navigate_to_contact_us(self):
         self._click_contact_us_link()
+        return ContactUsPage(self.driver)
 
     def navigate_to_sign_in_page(self):
-        self._contact_us_link()
+        self._click_sign_in_link()
+        return SignInPage(self.driver)

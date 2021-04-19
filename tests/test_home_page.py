@@ -15,6 +15,7 @@ class HomePageTest(unittest.TestCase):
         cls.driver.maximize_window()
         cls.driver.get('http://www.automationpractice.com')
 
+    @unittest.skip("Skipped")
     def test_can_search_for_products(self):
         hp = HomePage(self.driver)
         time.sleep(5)
@@ -22,12 +23,22 @@ class HomePageTest(unittest.TestCase):
         search_count = sp.get_search_items_list_count()
         self.assertEqual(search_count, 7)
 
+    @unittest.skip("Skipped")
     def test_can_navigate_to_contact_us(self):
         hp = HomePage(self.driver)
         time.sleep(5)
-        sp = hp.perform_search("Dress")
-        search_count = sp.get_search_items_list_count()
-        self.assertEqual(search_count, 7)
+        self.assertEqual(hp.get_page_title(), "My Store")
+        cp = HomePage.navigate_to_contact_us()
+        time.sleep(5)
+        self.assertEqual(cp.get_page_title(),"Contact us - My Store")
+
+    def test_can_navigate_to_sign_in(self):
+        hp = HomePage(self.driver)
+        time.sleep(5)
+        self.assertEqual(hp.get_page_title(), "My Store")
+        cp = HomePage.navigate_to_contact_us()
+        time.sleep(5)
+        self.assertEqual(cp.get_page_title(),"Login - My Store")
 
     @classmethod
     def tearDownClass(cls):
