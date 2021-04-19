@@ -41,10 +41,10 @@ class BasePage:
             locator_type = locator_type.lower()
             by_type = self.get_element_by_type(locator_type)
             element = self.driver.find_element(by_type, locator)
-            print("Element found with locator: " + locator +
+            print("Element found with locator: " + str(locator) +
                   " and  locatorType: " + locator_type)
         except:
-            print("Element not found with locator: " + locator +
+            print("Element not found with locator: " + str(locator) +
                   " and  locator_type: " + locator_type)
         return element
 
@@ -54,10 +54,10 @@ class BasePage:
             locator_type = locator_type.lower()
             by_type = self.get_element_by_type(locator_type)
             element = self.driver.find_elements(by_type, locator)
-            print("Element list found with locator: " + locator +
+            print("Element list found with locator: " + str(locator) +
                   " and  locator_type: " + locator_type)
         except:
-            print("Element list not found with locator: " + locator +
+            print("Element list not found with locator: " + str(locator) +
                   " and  locator_type: " + locator_type)
         return element
 
@@ -65,10 +65,10 @@ class BasePage:
         try:
             element = self.get_element(locator, locator_type)
             element.click()
-            print("Clicked on element with locator: " + locator +
+            print("Clicked on element with locator: " + str(locator) +
                   " locatorType: " + locator_type)
         except:
-            print("Cannot click on the element with locator: " + locator +
+            print("Cannot click on the element with locator: " + str(locator) +
                   " locatorType: " + locator_type)
             print_stack()
 
@@ -76,11 +76,11 @@ class BasePage:
         try:
             element = self.get_element(locator, locator_type)
             element.send_keys(data)
-            print("Sent data on element with locator: " + locator +
-                  " locatorType: " + locator_type)
+            print("Sent data on element with locator: " + str(locator) +
+                  " locator type: " + locator_type)
         except:
-            print("Cannot send data on the element with locator: " + locator +
-                  " locatorType: " + locator_type)
+            print("Cannot send data on the element with locator: " + str(locator) +
+                  " locator type: " + locator_type)
             print_stack()
 
     def is_element_present(self, locator, locator_type="id"):

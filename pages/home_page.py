@@ -1,10 +1,11 @@
-from pages.SearchResultPage import SearchResultPage
+from pages.base_page import BasePage
+from pages.search_result import SearchResultPage
 
 
 class HomePage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver = driver
+
 
     ##########################################Start Locators##############################################
 
@@ -15,8 +16,8 @@ class HomePage(BasePage):
 
     ##########################################End Locators################################################
 
-    def _enter_search_text(self,search_text ="SEARCH", ):
-        self.type_keys(search_text, self._search_box,locator_type=id)
+    def _enter_search_text(self, search_text ="SEARCH", ):
+        self.type_keys(search_text, self._search_box, locator_type="id")
 
     def _click_search_button(self):
         self.element_click(self._search_button, locator_type="name")

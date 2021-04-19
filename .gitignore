@@ -130,3 +130,4 @@ dmypy.json
 
 wd/
 .idea/
+tests/_trial_temp/
