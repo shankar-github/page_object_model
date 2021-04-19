@@ -16,7 +16,13 @@ class HomePageTest(unittest.TestCase):
         cls.driver.get('http://www.automationpractice.com')
 
     def test_can_search_for_products(self):
-        print("Inside Test")
+        hp = HomePage(self.driver)
+        time.sleep(5)
+        sp = hp.perform_search("Dress")
+        search_count = sp.get_search_items_list_count()
+        self.assertEqual(search_count, 7)
+
+    def test_can_navigate_to_contact_us(self):
         hp = HomePage(self.driver)
         time.sleep(5)
         sp = hp.perform_search("Dress")
