@@ -84,24 +84,24 @@ class BasePage:
                   " locator type: " + locator_type)
             print_stack()
 
-    def select_from_drop_down(self, select_value, locator, locator_type="id", select_by ='val'):
+    def select_from_drop_down(self, select_value, locator, locator_type="id", select_by='index'):
         select_by = select_by.lower()
         try:
             element = self.get_element(locator, locator_type)
             sel = Select(element)
-            if select_by =='val':
+            if select_by == 'val':
                 sel.select_by_value(select_value)
-            elif select_by=='index':
-                sel.select_by_index(select_value)
-            elif select_by=='text':
+            elif select_by == 'index':
+                sel.select_by_index(int(select_value))
+            elif select_by == 'text':
                 sel.select_by_visible_text(select_value)
             else:
-                print("Cannot Select with given Select By" +select_by+ "And Value "+ select_value)
+                print("Cannot Select with given Select By " + str(select_by) + " And Value " + str(select_value))
         except:
-            print("Cannot Select with given Select By" +select_by+ "And Value "+ select_value)
+            print("Cannot Select with given Select By " + str(select_by) + " And Value " + str(select_value))
             print_stack()
 
-    def upload_file(self,file, locator,locator_type="id"):
+    def upload_file(self, file, locator, locator_type="id"):
         base_path = 'data/img'
         file_name = None
         with os.scandir(base_path) as entries:
@@ -112,7 +112,7 @@ class BasePage:
             element = self.get_element(locator, locator_type)
             element.send_keys(file_name)
         except:
-            print("Cannot Upload File With Given Locator " + locator + "And Locator Type " + locator_type)
+            print("Cannot Upload File With Given Locator " + str(locator) + "And Locator Type " + locator_type)
             print_stack()
 
     def is_element_present(self, locator, locator_type="id"):

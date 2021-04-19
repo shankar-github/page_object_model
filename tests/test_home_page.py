@@ -8,6 +8,7 @@ from pages.home_page import HomePage
 
 
 class HomePageTest(unittest.TestCase):
+    @unittest.skip("Skipped")
     @classmethod
     def setUpClass(cls):
         cls.driver = wd.Chrome(executable_path=r"./wd/chromedriver")
@@ -32,6 +33,7 @@ class HomePageTest(unittest.TestCase):
         time.sleep(5)
         self.assertEqual(cp.get_page_title(),"Contact us - My Store")
 
+    @unittest.skip("Skipped")
     def test_can_navigate_to_sign_in(self):
         hp = HomePage(self.driver)
         time.sleep(5)
@@ -40,6 +42,7 @@ class HomePageTest(unittest.TestCase):
         time.sleep(5)
         self.assertEqual(cp.get_page_title(),"Login - My Store")
 
+    @unittest.skip("Skipped")
     @classmethod
     def tearDownClass(cls):
         if cls.driver is not None:
