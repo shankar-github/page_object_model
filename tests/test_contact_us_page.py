@@ -22,7 +22,6 @@ class HomePageTest(unittest.TestCase):
         time.sleep(5)
         self.assertIn("There is 1 error", ncp.get_failure_message())
 
-    @unittest.skip("Skipped")
     def test_can_send_valid_message(self):
         hp = HomePage(self.driver)
         time.sleep(5)

@@ -101,16 +101,10 @@ class BasePage:
             print("Cannot Select with given Select By " + str(select_by) + " And Value " + str(select_value))
             print_stack()
 
-    def upload_file(self, file, locator, locator_type="id"):
-        base_path = 'data/img'
-        file_name = None
-        with os.scandir(base_path) as entries:
-            for entry in entries:
-                if entry.is_file():
-                    file_name = entry.name
+    def upload_file(self, file_name, locator, locator_type="id"):
         try:
             element = self.get_element(locator, locator_type)
-            element.send_keys(file_name)
+            element.send_keys(os.path.abspath(file_name))
         except:
             print("Cannot Upload File With Given Locator " + str(locator) + "And Locator Type " + locator_type)
             print_stack()
