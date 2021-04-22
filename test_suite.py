@@ -7,11 +7,20 @@ from HTMLTestRunner import HTMLTestRunner
 from tests.test_contact_us_page import ContactUsTest
 from tests.test_home_page import  HomePageTest
 
+from selenium import webdriver as wd
+
 
 current_directory = os.getcwd()
 
 
 class TestSuite(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls.driver = wd.Chrome(executable_path=r"./wd/chromedriver")
+        cls.driver.implicitly_wait(10)
+        cls.driver.maximize_window()
+        cls.driver.get('http://www.automationpractice.com')
 
     def test_execute_suite(self):
         # Create a TestSuite comprising the two test cases
@@ -32,6 +41,11 @@ class TestSuite(unittest.TestCase):
         )
 
         html_runner.run(consolidated_test)
+
+    @classmethod
+    def tearDownClass(cls):
+        if cls.driver is not None:
+            cls.driver.quit()
 
 
 if __name__ == '__main__':

@@ -1,18 +1,10 @@
 import time
-import unittest
-
-from selenium import webdriver as wd
 
 from pages.home_page import HomePage
+from tests.base_test import BaseTest
 
 
-class ContactUsTest(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.driver = wd.Chrome(executable_path=r"./wd/chromedriver")
-        cls.driver.implicitly_wait(10)
-        cls.driver.maximize_window()
-        cls.driver.get('http://www.automationpractice.com')
+class ContactUsTest(BaseTest):
 
     def test_cannot_send_invalid_message(self):
         hp = HomePage(self.driver)
@@ -30,13 +22,3 @@ class ContactUsTest(unittest.TestCase):
                                 '/home/shankar/python_projects/page_object_model/data/img/flower.jpeg', 'Test Message')
         time.sleep(5)
         self.assertIn("Your message has been successfully sent to our team.", ncp.get_success_message())
-
-    @classmethod
-    def tearDownClass(cls):
-        if cls.driver is not None:
-            cls.driver.quit()
-
-
-if __name__ == '__main__':
-    unittest.main()
-

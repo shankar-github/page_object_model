@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>HTML Reporting using PyUnit</h1>
-<p class='attribute'><strong>Start Time:</strong> 2021-04-22 13:41:01</p>
-<p class='attribute'><strong>Duration:</strong> 0:01:31.661266</p>
-<p class='attribute'><strong>Status:</strong> Pass 4 Failure 1</p>
+<p class='attribute'><strong>Start Time:</strong> 2021-04-22 16:17:19</p>
+<p class='attribute'><strong>Duration:</strong> 0:02:10.519118</p>
+<p class='attribute'><strong>Status:</strong> Pass 5</p>
 
 <p class='description'>HTML Reporting using PyUnit &amp; HTMLTestRunner</p>
 </div>
@@ -221,11 +221,11 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='failClass'>
+<tr class='passClass'>
     <td>tests.test_home_page.HomePageTest</td>
     <td>3</td>
-    <td>2</td>
-    <td>1</td>
+    <td>3</td>
+    <td>0</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c1',3)">Detail</a></td>
 </tr>
@@ -256,31 +256,23 @@ Clicked on element with locator: Contact us locatorType: link
     </td>
 </tr>
 
-<tr id='ft1.2' class='none'>
-    <td class='failCase'><div class='testcase'>test_can_navigate_to_sign_in_page</div></td>
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_can_navigate_to_sign_in_page</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
-        fail</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
 
-    <div id='div_ft1.2' class="popup_window">
+    <div id='div_pt1.2' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.2: Element found with locator: Sign in and  locatorType: link
+pt1.2: Element found with locator: Sign in and  locatorType: link
 Clicked on element with locator: Sign in locatorType: link
-Traceback (most recent call last):
-  File "/home/shankar/python_projects/page_object_model/tests/test_home_page.py", line 38, in test_can_navigate_to_sign_in_page
-    self.assertEqual(cp.get_page_title(), "Login - My Stores")
-AssertionError: 'Login - My Store' != 'Login - My Stores'
-- Login - My Store
-+ Login - My Stores
-?                 +
-
 
 
         </pre>
@@ -350,9 +342,10 @@ Element found with locator: email and  locatorType: id
 Sent data on element with locator: email locator type: id
 Element found with locator: id_order and  locatorType: id
 Sent data on element with locator: id_order locator type: id
-Element not found with locator: &lt;bound method ContactUsPage._attach_file of &lt;pages.contact_us_page.ContactUsPage object at 0x7f363d615370&gt;&gt; and  locator_type: id
-Cannot Upload File With Given Locator &lt;bound method ContactUsPage._attach_file of &lt;pages.contact_us_page.ContactUsPage object at 0x7f363d615370&gt;&gt;And Locator Type id
-  File "test_suite.py", line 38, in &lt;module&gt;
+Element not found with locator: &lt;bound method ContactUsPage._attach_file of &lt;pages.contact_us_page.ContactUsPage object at 0x7f3d49fdc760&gt;&gt; and  locator_type: id
+****************/home/shankar/python_projects/page_object_model/data/img/flower.jpeg*************/home/shankar/python_projects/page_object_model/data/img/flower.jpeg
+Cannot Upload File With Given Locator &lt;bound method ContactUsPage._attach_file of &lt;pages.contact_us_page.ContactUsPage object at 0x7f3d49fdc760&gt;&gt;And Locator Type id
+  File "test_suite.py", line 52, in &lt;module&gt;
     unittest.main()
   File "/usr/lib/python3.8/unittest/main.py", line 101, in __init__
     self.runTests()
@@ -374,7 +367,7 @@ Cannot Upload File With Given Locator &lt;bound method ContactUsPage._attach_fil
     self._callTestMethod(testMethod)
   File "/usr/lib/python3.8/unittest/case.py", line 633, in _callTestMethod
     method()
-  File "test_suite.py", line 34, in test_execute_suite
+  File "test_suite.py", line 43, in test_execute_suite
     html_runner.run(consolidated_test)
   File "/home/shankar/python_projects/page_object_model/.venv/lib/python3.8/site-packages/HTMLTestRunner/HTMLTestRunner.py", line 629, in run
     test(result)
@@ -392,13 +385,13 @@ Cannot Upload File With Given Locator &lt;bound method ContactUsPage._attach_fil
     self._callTestMethod(testMethod)
   File "/usr/lib/python3.8/unittest/case.py", line 633, in _callTestMethod
     method()
-  File "/home/shankar/python_projects/page_object_model/tests/test_contact_us_page.py", line 29, in test_can_send_valid_message
+  File "/home/shankar/python_projects/page_object_model/tests/test_contact_us_page.py", line 24, in test_can_send_valid_message
     ncp = cp.send_a_message('1', 'a@b.com', '1',
   File "/home/shankar/python_projects/page_object_model/pages/contact_us_page.py", line 46, in send_a_message
     self._attach_file(file_path)
   File "/home/shankar/python_projects/page_object_model/pages/contact_us_page.py", line 33, in _attach_file
     self.upload_file(file_path,self._attach_file, locator_type="id")
-  File "/home/shankar/python_projects/page_object_model/pages/base_page.py", line 111, in upload_file
+  File "/home/shankar/python_projects/page_object_model/pages/base_page.py", line 112, in upload_file
     print_stack()
 Element found with locator: message and  locatorType: id
 Sent data on element with locator: message locator type: id
@@ -457,8 +450,8 @@ Invalid email address.'
 <tr id='total_row'>
     <td>Total</td>
     <td>5</td>
-    <td>4</td>
-    <td>1</td>
+    <td>5</td>
+    <td>0</td>
     <td>0</td>
     <td>&nbsp;</td>
 </tr>

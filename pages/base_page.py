@@ -5,9 +5,9 @@ from traceback import print_stack
 from selenium.common.exceptions import *
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 
 class BasePage:
@@ -105,6 +105,7 @@ class BasePage:
     def upload_file(self, file_name, locator, locator_type="id"):
         try:
             element = self.get_element(locator, locator_type)
+            print("****************" + file_name + "*************" + os.path.abspath(file_name))
             element.send_keys(os.path.abspath(file_name))
         except:
             print("Cannot Upload File With Given Locator " + str(locator) + "And Locator Type " + locator_type)
@@ -193,7 +194,7 @@ class BasePage:
             print("### Exception Occurred when taking screenshot")
             print_stack()
 
-    def hover_over_element(self, locator, locator_type ='id'):
+    def hover_over_element(self, locator, locator_type='id'):
         try:
             element = self.get_element(locator, locator_type)
             ActionChains(self.driver).move_to_element(element).perform()
@@ -204,7 +205,7 @@ class BasePage:
                   " locatorType: " + locator_type)
             print_stack()
 
-    def move_slider_element(self, locator, locator_type ='id', x_distance = 0, y_distance= 0):
+    def move_slider_element(self, locator, locator_type='id', x_distance=0, y_distance=0):
 
         try:
             element = self.get_element(locator, locator_type)

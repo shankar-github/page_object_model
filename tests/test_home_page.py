@@ -1,20 +1,10 @@
 import time
-import unittest
-
-from selenium import webdriver as wd
-from selenium.webdriver.common.by import By
 
 from pages.home_page import HomePage
+from tests.base_test import BaseTest
 
 
-class HomePageTest(unittest.TestCase):
-
-    @classmethod
-    def setUpClass(cls):
-        cls.driver = wd.Chrome(executable_path=r"./wd/chromedriver")
-        cls.driver.implicitly_wait(10)
-        cls.driver.maximize_window()
-        cls.driver.get('http://www.automationpractice.com')
+class HomePageTest(BaseTest):
 
     def test_can_search_for_products(self):
         hp = HomePage(self.driver)
@@ -36,12 +26,3 @@ class HomePageTest(unittest.TestCase):
         cp = hp.navigate_to_sign_in_page()
         time.sleep(5)
         self.assertEqual(cp.get_page_title(), "Login - My Store")
-
-    @classmethod
-    def tearDownClass(cls):
-        if cls.driver is not None:
-            cls.driver.quit()
-
-
-if __name__ == '__main__':
-    unittest.main()

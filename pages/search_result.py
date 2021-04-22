@@ -6,7 +6,6 @@ class SearchResultPage(BasePage):
         self.driver = driver
         super().__init__(self.driver)
 
-
     ##########################################Start Locators##############################################
 
     _search_results = "//div/h1/span[@class='lighter']"
