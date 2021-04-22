@@ -1,12 +1,13 @@
-from pages.base_page import BasePage
-from pages.contact_us_page import ContactUsPage
-from pages.search_result import SearchResultPage
-from pages.sign_in_page import SignInPage
+from .base_page import BasePage
+from .contact_us_page import ContactUsPage
+from .search_result import SearchResultPage
+from .sign_in_page import SignInPage
 
 
 class HomePage(BasePage):
     def __init__(self, driver):
-        super().__init__(driver)
+        self.driver = driver
+        super().__init__(self.driver)
 
 
     ##########################################Start Locators##############################################

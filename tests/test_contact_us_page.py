@@ -6,7 +6,7 @@ from selenium import webdriver as wd
 from pages.home_page import HomePage
 
 
-class HomePageTest(unittest.TestCase):
+class ContactUsTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.driver = wd.Chrome(executable_path=r"./wd/chromedriver")
@@ -39,3 +39,4 @@ class HomePageTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

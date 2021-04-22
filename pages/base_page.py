@@ -3,6 +3,7 @@ import time
 from traceback import print_stack
 
 from selenium.common.exceptions import *
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
@@ -190,4 +191,27 @@ class BasePage:
             print("Screenshot save to directory: " + destination_file)
         except:
             print("### Exception Occurred when taking screenshot")
+            print_stack()
+
+    def hover_over_element(self, locator, locator_type ='id'):
+        try:
+            element = self.get_element(locator, locator_type)
+            ActionChains(self.driver).move_to_element(element).perform()
+            print("Hovered on element with locator: " + str(locator) +
+                  " locatorType: " + locator_type)
+        except:
+            print("Cannot hover on the element with locator: " + str(locator) +
+                  " locatorType: " + locator_type)
+            print_stack()
+
+    def move_slider_element(self, locator, locator_type ='id', x_distance = 0, y_distance= 0):
+
+        try:
+            element = self.get_element(locator, locator_type)
+            ActionChains(self.driver).move_by_offset(element, x_distance, y_distance).perform()
+            print("Slider moved with locator: " + str(locator) +
+                  " locatorType: " + locator_type)
+        except:
+            print("Cannot move slider with locator: " + str(locator) +
+                  " locatorType: " + locator_type)
             print_stack()

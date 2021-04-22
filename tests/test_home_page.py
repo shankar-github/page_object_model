@@ -8,7 +8,7 @@ from pages.home_page import HomePage
 
 
 class HomePageTest(unittest.TestCase):
-    @unittest.skip("Skipped")
+
     @classmethod
     def setUpClass(cls):
         cls.driver = wd.Chrome(executable_path=r"./wd/chromedriver")
@@ -16,7 +16,6 @@ class HomePageTest(unittest.TestCase):
         cls.driver.maximize_window()
         cls.driver.get('http://www.automationpractice.com')
 
-    @unittest.skip("Skipped")
     def test_can_search_for_products(self):
         hp = HomePage(self.driver)
         time.sleep(5)
@@ -24,25 +23,20 @@ class HomePageTest(unittest.TestCase):
         search_count = sp.get_search_items_list_count()
         self.assertEqual(search_count, 7)
 
-    @unittest.skip("Skipped")
     def test_can_navigate_to_contact_us(self):
         hp = HomePage(self.driver)
         time.sleep(5)
-        self.assertEqual(hp.get_page_title(), "My Store")
-        cp = HomePage.navigate_to_contact_us()
+        cp = hp.navigate_to_contact_us()
         time.sleep(5)
-        self.assertEqual(cp.get_page_title(),"Contact us - My Store")
+        self.assertEqual(cp.get_page_title(), "Contact us - My Store")
 
-    @unittest.skip("Skipped")
-    def test_can_navigate_to_sign_in(self):
+    def test_can_navigate_to_sign_in_page(self):
         hp = HomePage(self.driver)
         time.sleep(5)
-        self.assertEqual(hp.get_page_title(), "My Store")
-        cp = HomePage.navigate_to_contact_us()
+        cp = hp.navigate_to_sign_in_page()
         time.sleep(5)
-        self.assertEqual(cp.get_page_title(),"Login - My Store")
+        self.assertEqual(cp.get_page_title(), "Login - My Store")
 
-    @unittest.skip("Skipped")
     @classmethod
     def tearDownClass(cls):
         if cls.driver is not None:

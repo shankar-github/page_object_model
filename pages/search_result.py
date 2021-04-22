@@ -1,9 +1,10 @@
-from pages.base_page import BasePage
+from .base_page import BasePage
 
 
 class SearchResultPage(BasePage):
     def __init__(self, driver):
-        super().__init__(driver)
+        self.driver = driver
+        super().__init__(self.driver)
 
 
     ##########################################Start Locators##############################################
